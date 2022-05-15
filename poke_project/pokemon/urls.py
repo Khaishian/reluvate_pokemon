@@ -3,8 +3,10 @@ from rest_framework.routers import DefaultRouter
 from .views import *
 
 router = DefaultRouter()
-router.register(r'allpokemon', PokemonViewSet)
-# router.register(r'users', UserViewSet)
+router.register(r'allpokemon', PokemonReadOnlyViewSet)
+router.register(r'users', PokemonUserViewSet)
+router.register(r'mypokemon', PokemonInstanceReadOnlyViewSet, basename="mypokemon")
+router.register(r'addpokemon', PokemonInstanceCreateViewSet, basename="addpokemon")
 
 
 urlpatterns = [
