@@ -35,11 +35,11 @@ class PokemonInstanceSerializer(serializers.ModelSerializer):
         return pokemonInstance 
 
 
-class PokemonUserSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
-    pokemon = PokemonSerializer(read_only=True)
+# class PokemonUserSerializer(serializers.ModelSerializer):
+#     user = UserSerializer(read_only=True)
+#     pokemon = PokemonSerializer(read_only=True)
 
-    class Meta:
-        model = PokemonUser
-        fields = ['user', 'pokemon']
+#     class Meta:
+#         model = PokemonUser
+#         fields = ['user', 'pokemon']
 

@@ -4,9 +4,11 @@ from .views import *
 
 router = DefaultRouter()
 router.register(r'allpokemon', PokemonReadOnlyViewSet)
-router.register(r'users', PokemonUserViewSet)
-router.register(r'mypokemon', PokemonInstanceReadOnlyViewSet, basename="mypokemon")
-router.register(r'addpokemon', PokemonInstanceCreateViewSet, basename="addpokemon")
+# router.register(r'users', PokemonUserViewSet)
+router.register(r'unownedpokemon', PokemonUnownedViewSet)
+router.register(r'mypokemon', PokemonInstanceViewSet, basename="mypokemon")
+router.register(r'addpokemon', PokemonInstanceViewSet, basename="addpokemon")
+router.register(r'releasepokemon', PokemonInstanceViewSet, basename="releasepokemon")
 
 
 urlpatterns = [

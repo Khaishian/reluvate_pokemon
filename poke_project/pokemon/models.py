@@ -19,6 +19,6 @@ class PokemonInstance(models.Model):
     level = models.IntegerField()
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
-class PokemonUser(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE)
+# class PokemonUser(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE)
