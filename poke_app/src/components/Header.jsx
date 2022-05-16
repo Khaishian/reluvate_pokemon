@@ -10,15 +10,18 @@ import Button from '@mui/material/Button';
 import Switch from '@mui/material/Switch';
 import {Link} from 'react-router-dom';
 import pokemon from '../assets/pokemon.png'
-
+import {AppContext} from '../App';
 
 const Header = (props) => {
 
-    let isLoggedIn = false;
+    const {isLoggedIn, setIsLoggedIn} = React.useContext(AppContext)
 
     const logout = () => {
-
+        localStorage.setItem('JWT', null);
+        setIsLoggedIn(false);
     }
+
+
 
     return (
         <AppBar position="fixed">
@@ -39,11 +42,11 @@ const Header = (props) => {
                         </Link>
                         &nbsp;
                         <Link to={'/login'} style={{textDecoration: 'none'}}>    
-                            <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained" onClick={logout}>Login</Button>
+                            <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained">Login</Button>
                         </Link>
                     </React.Fragment>
                 }
-                {isLoggedIn && <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained">Logout</Button>}
+                {isLoggedIn && <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained" onClick={logout}>Logout</Button>}
               </Box>
             </Toolbar>
           </Container>
