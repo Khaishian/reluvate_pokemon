@@ -11,7 +11,7 @@ import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import {AppContext} from '../App';
-import { loginUser, registerUser } from '../assets/services/UserService';
+import { loginUser, registerUser } from '../services/UserService';
 
 export default function Login() {
 
@@ -31,7 +31,7 @@ export default function Login() {
             handleClick("Login failed!");
         }else{
             setJwt(response.access);
-            window.open(`/home`);
+            window.location.href = "/home";
         }
     }
 
@@ -78,18 +78,21 @@ export default function Login() {
     };
 
     return (
-        <Box 
-        sx={{
-          position: "fixed",
-          zIndex: -1,
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: "100vh",
-          backgroundImage: `url(${forest})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat'}}>
+        <Box>
+            <Box 
+            sx={{
+            position: "fixed",
+            zIndex: -1,
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: "100vh",
+            backgroundImage: `url(${forest})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            filter: "brightness(0.8)",
+            backgroundRepeat: 'no-repeat'}}>
+            </Box>   
             <Container maxWidth="xl" sx={{mt: {xs:"100px", sm:"68px"}, pt:"20px"}}>
                 <Box sx={{height:"80vh", alignItems:"center", justifyContent:"center", display:"flex"}}>
                     <Card sx={{padding:"50px", width:{xs:"auto",md:"auto"}}}>
