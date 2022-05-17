@@ -10,21 +10,36 @@ import Button from '@mui/material/Button';
 import Switch from '@mui/material/Switch';
 import {Link} from 'react-router-dom';
 import pokemon from '../assets/pokemon.png'
+import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';  
 import {AppContext} from '../App';
+import { createTheme } from '@mui/material/styles'
 
 const Header = (props) => {
+
+  // const theme = createTheme({
+  //   palette: {
+  //     primary: {
+  //       main: "#2D2D2A",
+  //       light: "#38423B",
+  //       dark: "#353831"
+  //     }
+  //   }
+  // });
 
     const {isLoggedIn, setIsLoggedIn} = React.useContext(AppContext)
 
     const logout = () => {
-        localStorage.setItem('JWT', null);
+        localStorage.setItem('JWT', "");
         setIsLoggedIn(false);
+        window.location.href = "/home";
     }
 
-
+    const catchPokemon = () => {
+      window.location.href = "/catch";
+    }
 
     return (
-        <AppBar position="fixed">
+        <AppBar style={{background:"linear-gradient(to right, #f7971e, #ffd200)"}} position="fixed">
           <Container maxWidth="xl" sx={{paddingRight: {xs: '6px', md: '24px' }}}>
             <Toolbar disableGutters>
               <Box marginY={{xs:"10px", sm:"0"}} display={{xs:"block", sm:"flex"}}>
@@ -46,7 +61,16 @@ const Header = (props) => {
                         </Link>
                     </React.Fragment>
                 }
-                {isLoggedIn && <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained" onClick={logout}>Logout</Button>}
+                {isLoggedIn && 
+                  <React.Fragment>
+                    <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained" onClick={catchPokemon}>
+                      Catch Pokemon 
+                      <CatchingPokemonIcon style={{height: "20px", marginLeft:"2px", marginRight:"-5px"}}/>
+                    </Button>
+                    &nbsp;
+                    <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained" onClick={logout}>Logout</Button>
+                  </React.Fragment>
+                }
               </Box>
             </Toolbar>
           </Container>

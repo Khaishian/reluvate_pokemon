@@ -15,7 +15,7 @@ function App() {
 
   const getIsLoggedIn = () => {
     var value = localStorage.getItem('JWT');
-    if(value == null){
+    if(value == ""){
       return false
     }else{
       return true;
@@ -32,11 +32,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/home" element={<Home/>}/>
-        <Route path="/catch" element={<Catch/>}/>
+        {isLoggedIn && <Route path="/catch" element={<Catch/>}/>}
         <Route path="/login" element={<Login/>}/>
         <Route path="*" element={<Navigate to="/home" />}/>
       </Routes>
-      <FabCatch></FabCatch>
+      {isLoggedIn && <FabCatch></FabCatch>}
     </React.Fragment>
   </AppContext.Provider>
   );

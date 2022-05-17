@@ -4,26 +4,53 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Owned from '../components/Owned'
 import Unowned from '../components/Unowned'
-import All from '../components/All'
 import Typography from '@mui/material/Typography';
-import { getAllPokemons } from '../services/PokemonService';
 import { getCurrentUser } from '../services/UserService';
+import { getUnownedPokemons, getMyPokemons, deletePokemon } from '../services/PokemonService';
 import {AppContext} from '../App';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import videobg from '../assets/videobg.mp4'
+import AlertDialog from '../components/AlertDialog';
 
 export default function Home() {
 
     const {isLoggedIn, setIsLoggedIn} = React.useContext(AppContext);
-    const [allPokemons, setAllPokemons] = useState([]);
     const [currentUser, setCurrentUser] = useState(null);
-    var jwt = null;
+    const jwt = localStorage.getItem('JWT');
+    const [unownedPokemons, setUnownedPokemons] = useState([]);
+    const [myPokemons, setMyPokemons] = useState([]);
+    const [open, setOpen] = React.useState(false);
+    const [pokemon, setPokemon] = React.useState(null);
+
+    const fetchMyPokemons = async() => {
+        const response = await getMyPokemons(jwt);
+        setMyPokemons(response);
+
+    }
+
+    const removePokemon = (pokemon) => {
+        console.log(pokemon)
+        setPokemon(pokemon);
+        setOpen(true);
+        // confirmRemovePokemon(id)
+    }
+
+    const confirmRemovePokemon = async(id) => {
+        const response = await deletePokemon(jwt, id);
+        fetchMyPokemons();
+        fetchUnownedPokemons();
+    }
 
     useEffect(() => {
-        jwt = localStorage.getItem('JWT')
-        fetchAllPokemons();
+        // if(localStorage.getItem('JWT') != null){
+        //     setIsLoggedIn(true);
+        // }else{
+        //     setIsLoggedIn(false);
+        // }
         if(isLoggedIn){
             fetchCurrentUser();
+            fetchUnownedPokemons();
+            fetchMyPokemons();
         }
 
         return () => {
@@ -34,25 +61,19 @@ export default function Home() {
         window.location.href = "/login";
     }
 
-    const fetchAllPokemons = async() => {
-        const response = await getAllPokemons();
-        setAllPokemons(response) 
-    }
-
     const fetchCurrentUser = async() => {
         const response = await getCurrentUser(jwt);
         setCurrentUser(response.username)
     }
 
+    const fetchUnownedPokemons = async() => {
+        const response = await getUnownedPokemons(jwt);
+        setUnownedPokemons(response);
+
+    }
+
     return (
         <Container maxWidth="xl" sx={{pt:"20px"}}>
-            {/* {allPokemons && allPokemons.map(pokemon=>{
-                return(
-                        <div key={pokemon.id}>
-                            <h4>{pokemon.name}</h4>
-                        </div>
-                        )
-            })} */}
             <div>
                 <video style={{ filter: "brightness(0.5)", position: "fixed", zIndex: -1, top: 0, left: 0, width: "100vw", height: "100vh", objectFit: "cover"}} autoPlay loop muted>
                     <source src={videobg} type='video/mp4' />
@@ -78,15 +99,14 @@ export default function Home() {
                         <Typography sx={{my:"50px"}} color="white" textAlign="right" variant="h6">
                         Welcome back, Trainer {currentUser}! 
                         </Typography>
-                        <Owned></Owned>
+                        <Owned myPokemons={myPokemons} removePokemon={(pokemon) => removePokemon(pokemon)}></Owned>
                         <div style={{height:"50px"}}></div>
-                        <Unowned></Unowned>
+                        <Unowned unownedPokemons={unownedPokemons}></Unowned>
                         <div style={{height:"50px"}}></div>
-                        <All></All>
-                        <div style={{height:"100px"}}></div>
                     </Box>
                 }
             </div>
+            <AlertDialog confirmRemovePokemon={confirmRemovePokemon} pokemon={pokemon} open={open} setOpen={setOpen}></AlertDialog>
         </Container>
     );
 }
