@@ -53,22 +53,22 @@ const Header = (props) => {
                 {!isLoggedIn && 
                     <React.Fragment>
                         <Link to={'/login'} style={{textDecoration: 'none'}}>
-                            <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained">Sign Up</Button>
+                            <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary', color: 'text.primary'}}} color="primary"  variant="contained">Sign Up</Button>
                         </Link>
                         &nbsp;
                         <Link to={'/login'} style={{textDecoration: 'none'}}>    
-                            <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained">Login</Button>
+                            <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary', color: 'text.primary'}}} color="primary"  variant="contained">Login</Button>
                         </Link>
                     </React.Fragment>
                 }
                 {isLoggedIn && 
                   <React.Fragment>
-                    <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained" onClick={catchPokemon}>
+                    <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary', color: 'text.primary'}}} color="primary"  variant="contained" onClick={catchPokemon}>
                       Catch Pokemon 
                       <CatchingPokemonIcon style={{height: "20px", marginLeft:"2px", marginRight:"-5px"}}/>
                     </Button>
                     &nbsp;
-                    <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained" onClick={logout}>Logout</Button>
+                    <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary', color: 'text.primary'}}} color="primary"  variant="contained" onClick={logout}>Logout</Button>
                   </React.Fragment>
                 }
               </Box>

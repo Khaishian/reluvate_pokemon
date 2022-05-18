@@ -78,16 +78,16 @@ export default function Home() {
                 <video style={{ filter: "brightness(0.5)", position: "fixed", zIndex: -1, top: 0, left: 0, width: "100vw", height: "100vh", objectFit: "cover"}} autoPlay loop muted>
                     <source src={videobg} type='video/mp4' />
                 </video>
-                {!isLoggedIn && <Box sx={{justifyContent:"center", display:"flex"}}>
+                {!isLoggedIn && <Box sx={{justifyContent:"center", display:"flex", alignItems:"center", height:"90vh"}}>
                     <Box sx={{padding:"30px", width:{xs:"auto", md:"800px"}}}> 
                         <Typography sx={{my:"50px", mx: "100px"}} color="white" textAlign="center" variant="h2">
                             Welcome to The Pokemon Game!
                         </Typography>
                         <Typography sx={{my:"50px", mx: "100px"}} color="white" textAlign="justify" variant="h5">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        This is an assignment (standardised test) before interview for internship role in Reluvate Technologies. Feel free to play around the app, happy pokemon catching! 
                         </Typography>
                         <Box sx={{justifyContent:"center", display:"flex"}}> 
-                            <Button size="large" sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained" onClick={startGame}>
+                            <Button size="large" sx={{borderRadius:"5px",':hover': {bgcolor: 'primary', color: 'text.primary'}}} color="primary" variant="contained" onClick={startGame}>
                                 Start Game
                                 <PlayArrowIcon style={{height:"20px", marginRight:"-10px", marginTop:"-2px"}}/>
                             </Button>

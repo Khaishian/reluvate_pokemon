@@ -123,7 +123,7 @@ export default function Guess(props) {
             <Typography sx={{}} color="white" textAlign="left" variant="h5">
                 Guess The Number 
             </Typography>
-            <Card sx={{background:"linear-gradient(to right, #f7971e, #ffd200)", padding:"20px", width:{xs:"auto",md:"auto"}}}>
+            <Card sx={{background:"", padding:"20px", width:{xs:"auto",md:"auto"}}}>
                 <Typography sx={{}} color="black" textAlign="left" variant="p1">
                     Guess a number between 1 - 10 within 3 attempts to capture the pokemon! 
                 </Typography>
@@ -154,7 +154,7 @@ export default function Guess(props) {
                         /> 
                     &nbsp;
                     &nbsp;
-                    <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained" onClick={checkGuess}>Guess</Button>
+                    <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary', color: 'text.primary'}}} color="primary" variant="contained" onClick={checkGuess}>Guess</Button>
                 </Box>
                 {/* <Box sx={{mt:"10px"}}> 
                     {[...Array(life)].map(life=>{

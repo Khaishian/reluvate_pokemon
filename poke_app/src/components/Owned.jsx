@@ -20,7 +20,7 @@ export default function Owned(props) {
             <Typography sx={{}} color="white" textAlign="left" variant="h5">
                 My Pokemons 
             </Typography>
-            <Card sx={{background:"rgba(255,255,255, 0.3)", padding:"20px", width:{xs:"auto",md:"auto"}}}>
+            <Card sx={{background:"", padding:"20px", width:{xs:"auto",md:"auto"}}}>
                 <Grid container spacing={4}>
                     {myPokemons && myPokemons.map(pokemon=>{
                         return(

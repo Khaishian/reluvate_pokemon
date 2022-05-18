@@ -123,9 +123,9 @@ export default function Login() {
                         <br/>  
                         <br/>
                         <Box sx={{justifyContent:"center", display:"flex"}}>
-                            <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained" onClick={signup}>Sign Up</Button>
+                            <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary', color: 'text.primary'}}} color="primary"  variant="contained" onClick={signup}>Sign Up</Button>
                             &nbsp;
-                            <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary.dark', color: 'text.primary'}}} color="secondary" variant="contained" onClick={login}>Login</Button>
+                            <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary', color: 'text.primary'}}} color="primary" variant="contained" onClick={login}>Login</Button>
                         </Box>
                     </Card>
                 </Box>

@@ -19,7 +19,7 @@ export default function Unowned(props) {
             <Typography sx={{}} color="white" textAlign="left" variant="h5">
                 Unowned Pokemons 
             </Typography>
-            <Card sx={{background:"rgba(255,255,255, 0.3)", padding:"50px", width:{xs:"auto",md:"auto"}}}>
+            <Card sx={{background:"", padding:"50px", width:{xs:"auto",md:"auto"}}}>
                 <Grid container spacing={2}>
                     {unownedPokemons && unownedPokemons.map(pokemon=>{
                         return(
