@@ -1,9 +1,6 @@
 import * as React from 'react';
-import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 
 export default function PokemonCatchCard(props) {
 
@@ -15,16 +12,6 @@ export default function PokemonCatchCard(props) {
                 {pokemon.name}
             </Typography>
             <Typography sx={{}} color="black" textAlign="left" variant="p">
-            {/* <table>
-                <tr>
-                    <td>HP: </td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>ATK: </td>
-                    <td>907</td>
-                </tr>
-            </table> */}
 
                 HP: {pokemon.hp}
                 <br/>

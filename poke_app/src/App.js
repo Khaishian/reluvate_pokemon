@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useRef, useState, useEffect, createContext } from 'react';
+import { useState, createContext } from 'react';
 import { Navigate, Routes, Route, useNavigate} from 'react-router-dom';
 import Home from './pages/Home'
 import Header from './components/Header';
@@ -27,7 +27,6 @@ function App() {
   return (
   <AppContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
     <React.Fragment>
-      {/* {currentRoute != 'login' && <Header></Header>} */}
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home/>}/>

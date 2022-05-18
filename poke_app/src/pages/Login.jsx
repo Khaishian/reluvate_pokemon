@@ -7,7 +7,6 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import pokemon from '../assets/pokemon.png'
 import forest from '../assets/forest.jpg'
-import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import {AppContext} from '../App';

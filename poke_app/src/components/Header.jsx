@@ -2,29 +2,14 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import Switch from '@mui/material/Switch';
 import {Link} from 'react-router-dom';
 import pokemon from '../assets/pokemon.png'
 import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';  
 import {AppContext} from '../App';
-import { createTheme } from '@mui/material/styles'
 
 const Header = (props) => {
-
-  // const theme = createTheme({
-  //   palette: {
-  //     primary: {
-  //       main: "#2D2D2A",
-  //       light: "#38423B",
-  //       dark: "#353831"
-  //     }
-  //   }
-  // });
 
     const {isLoggedIn, setIsLoggedIn} = React.useContext(AppContext)
 

@@ -21,10 +21,6 @@ class PokemonUnownedViewSet(viewsets.ReadOnlyModelViewSet):
         owned_list = list(dict.fromkeys(owned_list))
         return Pokemon.objects.filter(~Q(name__in=owned_list))
 
-# class PokemonUserViewSet(viewsets.ModelViewSet):
-#     queryset = PokemonUser.objects.all()
-#     serializer_class = PokemonUserSerializer
-
 class PokemonInstanceViewSet(viewsets.ModelViewSet):
     queryset = PokemonInstance.objects.all()
     serializer_class = PokemonInstanceSerializer
@@ -40,11 +36,3 @@ class PokemonInstanceViewSet(viewsets.ModelViewSet):
             return PokemonInstance.objects.all()
         else:
             return PokemonInstance.objects.filter(owner=self.request.user)
-            
-
-# class PokemonInstanceCreateViewSet(viewsets.ModelViewSet):
-#     queryset = PokemonInstance.objects.all()
-#     serializer_class = PokemonInstanceSerializer
-
-#     permission_classes = [IsAuthenticated]
-    

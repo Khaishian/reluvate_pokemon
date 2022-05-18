@@ -33,13 +33,3 @@ class PokemonInstanceSerializer(serializers.ModelSerializer):
         validated_data["level"] = random.randint(1,100)
         pokemonInstance = PokemonInstance.objects.create(pokemon=pokemon, **validated_data)
         return pokemonInstance 
-
-
-# class PokemonUserSerializer(serializers.ModelSerializer):
-#     user = UserSerializer(read_only=True)
-#     pokemon = PokemonSerializer(read_only=True)
-
-#     class Meta:
-#         model = PokemonUser
-#         fields = ['user', 'pokemon']
-

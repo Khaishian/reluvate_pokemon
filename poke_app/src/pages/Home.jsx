@@ -32,7 +32,6 @@ export default function Home() {
         console.log(pokemon)
         setPokemon(pokemon);
         setOpen(true);
-        // confirmRemovePokemon(id)
     }
 
     const confirmRemovePokemon = async(id) => {
@@ -42,11 +41,6 @@ export default function Home() {
     }
 
     useEffect(() => {
-        // if(localStorage.getItem('JWT') != null){
-        //     setIsLoggedIn(true);
-        // }else{
-        //     setIsLoggedIn(false);
-        // }
         if(isLoggedIn){
             fetchCurrentUser();
             fetchUnownedPokemons();

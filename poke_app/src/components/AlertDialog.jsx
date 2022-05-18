@@ -13,10 +13,6 @@ export default function AlertDialog(props) {
   const pokemon = props.pokemon;
   const confirmRemovePokemon = props.confirmRemovePokemon;
 
-  // const handleClickOpen = () => {
-  //   setOpen(true);
-  // };
-
   const handleClose = () => {
     setOpen(false);
   };
@@ -28,9 +24,6 @@ export default function AlertDialog(props) {
 
   return (
     <div>
-      {/* <Button variant="outlined" onClick={handleClickOpen}>
-        Open alert dialog
-      </Button> */}
       <Dialog
         open={open}
         onClose={handleClose}

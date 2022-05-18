@@ -1,14 +1,10 @@
 import * as React from 'react';
-import {useState, useEffect} from 'react';
 import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import PokemonCard from './PokemonCard';
-import {AppContext} from '../App';
-import { getMyPokemons, deletePokemon, getAllPokemons } from '../services/PokemonService';
 
 export default function Owned(props) {
 

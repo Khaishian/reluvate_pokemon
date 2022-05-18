@@ -3,12 +3,8 @@ import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { getUnownedPokemons } from '../services/PokemonService';
-import {useState, useEffect} from 'react';
 import Grid from '@mui/material/Grid';
 import PokemonNameCard from './PokemonNameCard';
-import {AppContext} from '../App';
 
 export default function Unowned(props) {
 

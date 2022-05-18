@@ -3,17 +3,13 @@ import {useState, useEffect, useRef} from 'react';
 import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import PokemonCard from './PokemonCatchCard';
-import {AppContext} from '../App';
-import { getMyPokemons, deletePokemon, addPokemon, getAllPokemons } from '../services/PokemonService';
+import { addPokemon } from '../services/PokemonService';
 
 export default function Guess(props) {
 
@@ -156,13 +152,6 @@ export default function Guess(props) {
                     &nbsp;
                     <Button sx={{borderRadius:"5px",':hover': {bgcolor: 'primary', color: 'text.primary'}}} color="primary" variant="contained" onClick={checkGuess}>Guess</Button>
                 </Box>
-                {/* <Box sx={{mt:"10px"}}> 
-                    {[...Array(life)].map(life=>{
-                        return(
-                            <FavoriteIcon style={{color:"red"}}/>
-                        )
-                    })}
-                </Box>  */}
                 <Box sx={{justifyContent:"center", display:"flex"}}> 
                     <Typography sx={{}} color="black" textAlign="left" variant="p1" fontWeight={"bold"}>
                         {hint}

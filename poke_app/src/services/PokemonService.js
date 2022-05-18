@@ -15,13 +15,8 @@ export async function getMyPokemons(jwt) {
     const instance = axios.create({
         headers: {'Authorization': 'Bearer '+ jwt}
       });
-    // const config = {
-    //     headers: {'Authorization': 'Bearer '+ jwt}
-    //   };
     try{
         const response = await instance.get('/pokemon/mypokemon');
-        // const response = await fetch('/pokemon/mypokemon', config);
-        // return await response.json();
         return await response.data;
     }catch(error) {
         return [];
@@ -67,8 +62,3 @@ export async function addPokemon(jwt, data) {
     }
     
 }
-
-// export async function createUser(data) {
-//     const response = await axios.post(`/api/user`, {user: data});
-//     return response.data;
-// }

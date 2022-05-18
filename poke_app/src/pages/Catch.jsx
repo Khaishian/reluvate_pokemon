@@ -10,13 +10,11 @@ import { getAllPokemons } from '../services/PokemonService';
 
 export default function Catch() {
 
-    let isLoggedIn = true;
     const [allPokemons, setAllPokemons] = useState([]);
     const [pokemon, setPokemon] = useState(null);
 
     const fetchAllPokemons = async() => {
         const response = await getAllPokemons();
-        // setAllPokemons(response);
         setPokemon(genOnePokemon(response));
 
     }
